@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tp.decorator
+namespace tp.Decorator
 {
     class Program
     {
