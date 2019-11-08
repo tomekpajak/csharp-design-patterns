@@ -8,11 +8,11 @@ namespace tp.Composite
     {
         static void Main(string[] args)
         {
-            var departmentA = new OrganizationalUnit();
+            var departmentA = new OrganizationalUnitComposite();
             departmentA.Add(new TeamProjectA());
             departmentA.Add(new TeamProjectB());
 
-            var companyA = new OrganizationalUnit();
+            var companyA = new OrganizationalUnitComposite();
             companyA.Add(departmentA);
             companyA.Add(new TeamProjectC());
 
@@ -36,7 +36,7 @@ namespace tp.Composite
         {
             public int GetEmployeesCount() => 5;
         }
-        class OrganizationalUnit : IOrganizationalUnit
+        class OrganizationalUnitComposite : IOrganizationalUnit
         {
             private IList<IOrganizationalUnit> organizationalUnits = new List<IOrganizationalUnit>();
             public void Add(IOrganizationalUnit organizationalUnit) => this.organizationalUnits.Add(organizationalUnit);
