@@ -2,17 +2,6 @@
 
 namespace tp.Adapter
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            IConfiguration configuration = new XMLConfigurationAdapter(new XMLConfigurationExternalService());
-            var value = configuration.GetValue("host-name");
-
-            Console.WriteLine(value);
-        }
-    }
-
     interface IConfiguration
     {
         string GetValue(string name);
@@ -36,5 +25,16 @@ namespace tp.Adapter
     class XMLConfigurationExternalService : IXMLConfiguration
     {
         public string GetAttributeValue(string name) => "fake-host";
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IConfiguration configuration = new XMLConfigurationAdapter(new XMLConfigurationExternalService());
+            var value = configuration.GetValue("host-name");
+
+            Console.WriteLine(value);
+        }
     }
 }
