@@ -9,6 +9,8 @@
       - [Adapter (wrapper)](#adapter-wrapper)
       - [Composite](#composite)
       - [Decorator](#decorator)
+      - [Proxy](#proxy)
+      - [Flyweight](#flyweight)
     - [Behavioral](#behavioral)
       - [Pattern](#pattern)
 
@@ -21,9 +23,17 @@ Wikipedia says:
 >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
 
 List of patterns:
-- [Adapter (wrapper)](#adapter)
-- [Composite](#composite)
-- [Decorator](#decorator)
+- [Design patterns using c](#design-patterns-using-c)
+  - [Types of designe patterns](#types-of-designe-patterns)
+    - [Creation](#creation)
+    - [Structural](#structural)
+      - [Adapter (wrapper)](#adapter-wrapper)
+      - [Composite](#composite)
+      - [Decorator](#decorator)
+      - [Proxy](#proxy)
+      - [Flyweight](#flyweight)
+    - [Behavioral](#behavioral)
+      - [Pattern](#pattern)
 
 #### Adapter (wrapper)
 Real world example:
@@ -51,7 +61,7 @@ In plain words:
 >Composite pattern lets clients treat the individual objects in a uniform manner.
 
 Wikipedia says:
->In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
+>The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
 
 When to use:
 >- application has hierarchical structure and needs generic functionality across the structure.
@@ -73,14 +83,48 @@ Its operation can be similar to inheritance, with the difference that inheritanc
 Wikipedia says:
 >In object-oriented programming, the decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. The decorator pattern is often useful for adhering to the Single Responsibility Principle, as it allows functionality to be divided between classes with unique areas of concern.
 
-When to use:
->- dekorator warunkowy
->- dekorator leniwy
->- dekorator logujący
->- dekorator profilujący
->- dekorator właściwości i zdarzeń
+Example of using:
+> - conditional decorator
+> - lazy decorator
+> - logging decorator
+> - profiling decorator
+> - decorator of properties and events
+> 
+[C# Example](tp.Decorator/Program.cs)
 
-[C# Example](tp.decorator/Program.cs)
+#### Proxy
+Real world example:
+>A company or corporate used to have a proxy which restricts few site access. The proxy first checks the host you are connecting to, if it is not a part of restricted site list, then it connects to the real internet.
+
+In plain words:
+>The pattern goal is to build a class that replaces/emulates the behavior of another class/object
+
+Wikipedia says:
+>A proxy, in its most general form, is a class functioning as an interface to something else. A proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic. In the proxy extra functionality can be provided, for example caching when operations on the real object are resource intensive, or checking preconditions before operations on the real object are invoked.
+
+When to use:
+>- Access control to the protected object - e.g. access to data after user authorization
+>- Delay of creating an expensive object, the object is created when it is necessary - creation on demand
+>- Remote object emulation, e.g. object data is sent over the internet
+>- Caching of certain object data - some class data may take a long time to convert or be converted earlier
+
+
+[C# Example](tp.Proxy/Program.cs)
+
+#### Flyweight 
+Real world example:
+>todo
+
+In plain words:
+>todo 
+
+Wikipedia says:
+>A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
+
+When to use:
+>todo
+
+[C# Example]()
 
 
 ### Behavioral
