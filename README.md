@@ -77,6 +77,17 @@ In plain words:
 Wikipedia says:
 >In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
 
+Using abstract classes or interfaces:  
+> Consider using abstract classes if:
+>- You want to share code among several closely related classes.
+>- You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).
+>- You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.
+
+> Consider using interfaces if:
+>- You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
+>- You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+>- You want to take advantage of multiple inheritance of type.
+
 When to use:
 >- for creating objects to encapsulate the instantiation logic. Client doesn’t know the actual instantiation logic of entity.
 
