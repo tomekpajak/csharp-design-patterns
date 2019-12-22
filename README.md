@@ -17,22 +17,11 @@ Additional information:
 >
 
 List of patterns:
-- [Design patterns using c](#design-patterns-using-c)
-  - [Types of designe patterns](#types-of-designe-patterns)
-    - [Creational](#creational)
-      - [Builder](#builder)
-      - [Abstract Factory](#abstract-factory)
-      - [Factory Method](#factory-method)
-      - [Prototype](#prototype)
-      - [Singleton](#singleton)
-    - [Structural](#structural)
-      - [Adapter (wrapper)](#adapter-wrapper)
-      - [Composite](#composite)
-      - [Decorator](#decorator)
-      - [Proxy](#proxy)
-      - [Facade](#facade)
-    - [Behavioral](#behavioral)
-      - [Pattern](#pattern)
+- [Builder](#builder)
+- [Abstract Factory](#abstract-factory)
+- [Factory Method](#factory-method)
+- [Prototype](#prototype)
+- [Singleton](#singleton)
 
 #### Builder
 Real world example:
@@ -61,12 +50,67 @@ Builder vs Abstract Factory:
 [C# Example](tp.Builder/Program.cs)
 
 #### Abstract Factory
+Real world example:
+>Imagine you want to buy laptop. You are visiting store where you can order two brande laptop HP and Apple. Each laptop is made by different factory and contains different processor and storage. 
+
+In plain words:
+>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+Wikipedia says:
+>The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes.
+
+When to use:
+>- a system should be independent of how its products are created, composed, and represented
+>- a system should be configured with one of multiple families of products
+>- a family of related product objects is designed to be used together, and you need to enforce this constraint
+>- you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
+
+[C# Example]()
 
 #### Factory Method
+Real world example:
+>todo
+
+In plain words:
+>todo 
+
+Wikipedia says:
+>todo
+
+When to use:
+>todo
+
+[C# Example]()
 
 #### Prototype
+Real world example:
+>todo
+
+In plain words:
+>todo 
+
+Wikipedia says:
+>todo
+
+When to use:
+>todo
+
+[C# Example]()
 
 #### Singleton
+Real world example:
+>todo
+
+In plain words:
+>todo 
+
+Wikipedia says:
+>todo
+
+When to use:
+>todo
+
+[C# Example]()
 
 ### Structural
 In plain words:
