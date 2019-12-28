@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Linq;
 
 namespace tp.Builder
 {
+
     interface IPizzaBuilder
     {
         void AddDough();
@@ -69,5 +70,29 @@ namespace tp.Builder
             pizzaBuilder.AddIngredient();
         }
         public PizzaProduct GetPizza() => pizzaBuilder.Build();
+    }
+
+    public static class HelperBuilder
+    {
+        public static void Call()
+        {
+            PizzaProduct pizza = null;
+            CookDirector cook = null;
+
+            IPizzaBuilder margaritaPizzaBuilder = new MargaritaPizzaBuilder();
+            IPizzaBuilder capricossaPizzaBuilder = new CapricossaPizzaBuilder();
+
+            Console.WriteLine("margarita builder...");
+            cook = new CookDirector(margaritaPizzaBuilder);
+            cook.MakePizza();
+            pizza = cook.GetPizza();
+            Console.WriteLine(pizza.ToString());
+
+            Console.WriteLine("capricossa builder...");
+            cook = new CookDirector(capricossaPizzaBuilder);
+            cook.MakePizza();
+            pizza = cook.GetPizza();
+            Console.WriteLine(pizza.ToString());
+        }
     }
 }

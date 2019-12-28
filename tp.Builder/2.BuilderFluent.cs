@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace tp.Builder
+namespace tp.Builder.fluent
 {
+    //Example of fluent builder
+    //StringBuilder sb = new StringBuilder();
+    //sb.Append <- public StringBuilder Append(bool value);
+
     interface IPizzaBuilderFluent
     {
         IPizzaBuilderFluent AddDough();
@@ -74,5 +78,29 @@ namespace tp.Builder
                 .AddIngredient();
         }
         public PizzaProduct GetPizza() => pizzaBuilder.Build();
+    }
+
+    public static class HelperBuilderFluent
+    {
+        public static void Call()
+        {
+            PizzaProduct pizza = null;
+            CookDirectorFluent cook = null;
+
+            IPizzaBuilderFluent margaritaPizzaBuilderFluent = new MargaritaPizzaBuilderFluent();
+            IPizzaBuilderFluent capricossaPizzaBuilderFluent = new CapricossaPizzaBuilderFluent();
+
+            Console.WriteLine("margarita fluent builder...");
+            cook = new CookDirectorFluent(margaritaPizzaBuilderFluent);
+            cook.MakePizza();
+            pizza = cook.GetPizza();
+            Console.WriteLine(pizza.ToString());
+
+            Console.WriteLine("capricossa fluent builder...");
+            cook = new CookDirectorFluent(capricossaPizzaBuilderFluent);
+            cook.MakePizza();
+            pizza = cook.GetPizza();
+            Console.WriteLine(pizza.ToString());
+        }
     }
 }

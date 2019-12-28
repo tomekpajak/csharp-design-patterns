@@ -1,82 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
+using tp.Builder.fluent;
 
 namespace tp.Builder
 {
-    enum DoughType { thin, thick }
-    enum SauceType { tomato, garlic}
-    enum IngredientsType { ham, mushrooms, cheese }
-
-    class PizzaProduct
-    {
-        public DoughType Dough { get; set; }
-        public SauceType Sauce { get; set; }
-        public IList<IngredientsType> Ingredients { get; set; }
-     
-        public PizzaProduct() => this.Ingredients = new List<IngredientsType>();
-
-        public override string ToString() =>
-            new StringBuilder()
-                .AppendLine(String.Join(',', Ingredients.Select<IngredientsType, string>(i => i.ToString())))
-                .AppendLine(Sauce.ToString())
-                .AppendLine(Dough.ToString())
-                .AppendLine()
-                .ToString();
-    }
-
     class Program
     {
-        static void UseBuilder()
-        {
-            PizzaProduct pizza = null;
-            CookDirector cook = null;
-
-            IPizzaBuilder margaritaPizzaBuilder = new MargaritaPizzaBuilder();
-            IPizzaBuilder capricossaPizzaBuilder = new CapricossaPizzaBuilder();
-
-            Console.WriteLine("margarita builder...");
-            cook = new CookDirector(margaritaPizzaBuilder);
-            cook.MakePizza();
-            pizza = cook.GetPizza();
-            Console.WriteLine(pizza.ToString());
-
-            Console.WriteLine("capricossa builder...");
-            cook = new CookDirector(capricossaPizzaBuilder);
-            cook.MakePizza();
-            pizza = cook.GetPizza();
-            Console.WriteLine(pizza.ToString());
-        }
-
-        static void UseBuilderFluent()
-        {
-            PizzaProduct pizza = null;
-            CookDirectorFluent cook = null;
-
-            IPizzaBuilderFluent margaritaPizzaBuilderFluent = new MargaritaPizzaBuilderFluent();
-            IPizzaBuilderFluent capricossaPizzaBuilderFluent = new CapricossaPizzaBuilderFluent();
-
-            Console.WriteLine("margarita fluent builder...");
-            cook = new CookDirectorFluent(margaritaPizzaBuilderFluent);
-            cook.MakePizza();
-            pizza = cook.GetPizza();
-            Console.WriteLine(pizza.ToString());
-
-            Console.WriteLine("capricossa fluent builder...");
-            cook = new CookDirectorFluent(capricossaPizzaBuilderFluent);
-            cook.MakePizza();
-            pizza = cook.GetPizza();
-            Console.WriteLine(pizza.ToString());
-        }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Using builder...");
-            UseBuilder();
+            Console.WriteLine("1. Using builder...");
+            HelperBuilder.Call();
 
-            Console.WriteLine("Using fluent builder");
-            UseBuilderFluent();
+            Console.WriteLine("2. Using fluent builder");
+            HelperBuilderFluent.Call();
+
+            Console.WriteLine("3. Using fluent builder with inheritance with recursive generics");
+            var pizza = Pizza.New
+                             .WithDough(DoughType.thick)
+                             .WithSauce(SauceType.tomato)
+                             .WithIngredient(IngredientsType.cheese)
+                             .WithIngredient(IngredientsType.ham)
+                             .Build();
+            Console.WriteLine(pizza.ToString());
+
+            Console.WriteLine("4. Using functional builder");
+            var pizzaBuilderFunctional = new BuilderFunctional();
+            var pizza2 = pizzaBuilderFunctional.WithDough(DoughType.thick)
+                                               .WithSauce(SauceType.garlic)
+                                               .WithIngredient(IngredientsType.cheese)
+                                               .WithIngredient(IngredientsType.mushrooms)
+                                               .Price(10.1m)
+                                               .Build();
+            Console.WriteLine(pizza2.ToString());
+
+            Console.WriteLine("5. Using faceted builder");
+            var pizzaBuilderFaceted = new PizzaBuilderFaceted();
+            PizzaWithSize pizza3 = pizzaBuilderFaceted.Dough
+                                                          .Size(SizeType.big)
+                                                          .WithDough(DoughType.thick)
+                                                      .Composition
+                                                          .WithIngredient(IngredientsType.cheese)
+                                                          .WithIngredient(IngredientsType.ham)
+                                                          .WithSauce(SauceType.garlic);
+            Console.WriteLine(pizza3.ToString());
         }
     }
 }
