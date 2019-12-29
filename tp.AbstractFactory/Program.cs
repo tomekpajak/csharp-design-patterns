@@ -54,17 +54,14 @@ namespace tp.AbstractFactory
         public IStorage CreateStorage() => new HPStorage();
     }
 
-    class Program
+    class LaptopStore
     {
-        static void Main(string[] args)
+        public Laptop OrderLaptop(LaptopBrand brand)
         {
-            Console.WriteLine("What brand laptop do you want to buy? (a)pple or (h)p?");
-            LaptopBrand laptopBrand = (LaptopBrand)Enum.ToObject(typeof(LaptopBrand), Console.ReadKey().KeyChar);
-            Laptop laptop = CreateLaptop(FactoryProvider(laptopBrand));
-            Console.WriteLine("{0}{1}", Environment.NewLine, laptop.GetDescription());
+            return CreateLaptop(FactoryProvider(brand));
         }
 
-        private static IBrandLaptopFactory FactoryProvider(LaptopBrand brand)
+        private IBrandLaptopFactory FactoryProvider(LaptopBrand brand)
         {
             IBrandLaptopFactory factory = null;
 
@@ -83,13 +80,27 @@ namespace tp.AbstractFactory
             return factory;
         }
 
-        private static Laptop CreateLaptop(IBrandLaptopFactory factory)
+        private Laptop CreateLaptop(IBrandLaptopFactory factory)
         {
             Laptop laptop = new Laptop();
             laptop.Processor = factory.CreateProcessor();
             laptop.Storage = factory.CreateStorage();
 
             return laptop;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("What brand laptop do you want to buy? (a)pple or (h)p?");
+            var brand = (LaptopBrand)Enum.ToObject(typeof(LaptopBrand), Console.ReadKey().KeyChar);
+
+            var store = new LaptopStore();
+            Laptop laptop = store.OrderLaptop(brand);
+
+            Console.WriteLine("{0}{1}", Environment.NewLine, laptop.GetDescription());
         }
     }
 }

@@ -18,8 +18,7 @@ Additional information:
 
 List of patterns:
 - [Builder](#builder)
-- [Abstract Factory](#abstract-factory)
-- [Factory Method](#factory-method)
+- [Factory Method & Abstract Factory](#factories)
 - [Prototype](#prototype)
 - [Singleton](#singleton)
 
@@ -43,13 +42,32 @@ When to use:
 >- solve the telescoping constructor problem
 >- for objects that contain flat data (e.g.: html code, SQL query, X.509 certificate)
 
-
 Builder vs Abstract Factory:
 >The builder pattern describes the creation of complex objects step by step. In the abstract factory pattern, accent is placed on families of object-products
 
 [C# Example](tp.Builder/Program.cs)
 
-#### Abstract Factory
+#### Factories
+##### Factory Method
+Real world example:
+>Imagine you want to buy HP laptop. You re visiting store where you can order to various models HP laptop. When you place an order, it is sent to the factory that will produce for you the laptop you ordered.
+
+In plain words:
+>Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+Wikipedia says:
+>In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+
+When to use:
+>- for creating objects to encapsulate the instantiation logic. Client doesn’t know the actual instantiation logic of entity
+>- object creation logic is sometimes too complicated and using constructors to create objects has many limitations, e.g.:
+>>- the name of the constructor must be exactly the same as the class name (you cannot use the name to provide additional information on how to create the object or parameters that are used)
+>>-  you cannot overload a constructor with the same sets of parameter types
+>->  "optional parameters hell" may occur
+
+[C# Example](tp.FactoryMethod/Program.cs)
+
+##### Abstract Factory
 Real world example:
 >Imagine you want to buy laptop. You are visiting store where you can order two brande laptop HP and Apple. Each laptop is made by different factory and contains different processor and storage. 
 
@@ -67,31 +85,17 @@ When to use:
 
 [C# Example]()
 
-#### Factory Method
-Real world example:
->Imagine you want to buy HP laptop. You re visiting store where you can order to various models HP laptop. When you place an order, it is sent to the factory that will produce for you the laptop you ordered.
+#### Factories - using abstract classes or interfaces
+Consider using abstract classes if:
+>- you want to share code among several closely related classes
+>- you expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private)
+>- you want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong
 
-In plain words:
->Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+Consider using interfaces if:
+>- you expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes
+>- you want to specify the behavior of a particular data type, but not concerned about who implements its behavior
+>- you want to take advantage of multiple inheritance of type
 
-Wikipedia says:
->In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
-
-Using abstract classes or interfaces:  
-> Consider using abstract classes if:
->- You want to share code among several closely related classes.
->- You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).
->- You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.
-
-> Consider using interfaces if:
->- You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
->- You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
->- You want to take advantage of multiple inheritance of type.
-
-When to use:
->- for creating objects to encapsulate the instantiation logic. Client doesn’t know the actual instantiation logic of entity.
-
-[C# Example](tp.FactoryMethod/Program.cs)
 
 #### Prototype
 Real world example:
@@ -149,9 +153,9 @@ Wikipedia says:
 
 When to use:
 >- replacing external dependencies with internal dependencies\
-If we have dependence on the external Y library in class X, we can create an internal Z interface and create an external Y library adapter implementing the Z interface and use this adapter in class X.
+If we have dependence on the external Y library in class X, we can create an internal Z interface and create an external Y library adapter implementing the Z interface and use this adapter in class X
 >- adapt .net static class or custom static class to a new code\
-If you have a static class used in another class that you want to test using unit tests, you can create the adapter behind which you will hide this static class.
+If you have a static class used in another class that you want to test using unit tests, you can create the adapter behind which you will hide this static class
 
 [C# Example](tp.Adapter/Program.cs)
 
@@ -166,9 +170,9 @@ Wikipedia says:
 >The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
 
 When to use:
->- application has hierarchical structure and needs generic functionality across the structure.
->- application needs to aggregate data across a hierarchy.
->- application wants to treat composite and individual objects uniformly.
+>- application has hierarchical structure and needs generic functionality across the structure
+>- application needs to aggregate data across a hierarchy
+>- application wants to treat composite and individual objects uniformly
 
 [C# Example](tp.Composite/Program.cs)
 
