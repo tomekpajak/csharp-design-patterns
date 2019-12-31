@@ -99,16 +99,30 @@ Consider using interfaces if:
 
 #### Prototype
 Real world example:
->todo
+>Do you remember a sheep named Dolly? She was cloned. Without going into details, this pattern is associated with cloning...
 
 In plain words:
->todo 
+>It allows you to create a copy of an existing object and modify it to your needs, instead of going through the trouble of creating an object from scratch and setting it up 
 
 Wikipedia says:
->todo
+>The prototype pattern is a creational design pattern in software development. It is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects.
 
 When to use:
->todo
+>- composition, creation and representation of objects should be decoupled from the system
+>- classes to be created are specified at runtime
+>- you need to hide the complexity of creating new instance from the client
+>- creating an object is an expensive operation and it would be more efficient to copy an object
+>- objects are required that are similar to existing objects
+
+Shallow cloning vs deep cloning:
+>The **shallow copy** of an object will have the exact copy of all the fields of original object. If original object has any references to other objects as fields, then only references of those objects are copied into clone object, copy of those objects are not created. That means any changes made to those objects through clone object will be reflected in original object or vice-versa.
+
+>**Deep copy** of an object will have exact copy of all the fields of original object just like shallow copy. But in additional, if original object has any references to other objects as fields, then copy of those objects are also created by calling clone() method on them or by creating new object and setting the original values in it. That means clone object and original object will be 100% disjoint. They will be 100% independent of each other.
+
+ICloneable problems:
+>- does not specify whether cloning should be shallow or deep so we don't know what to expect
+>- return object type intead of strong type
+>- description of Array.Clone: "Creates a shallow copy of the System.Array" so if we have shallow copying here, why should we do something more?
 
 [C# Example]()
 
