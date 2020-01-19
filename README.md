@@ -128,18 +128,18 @@ ICloneable problems:
 
 #### Singleton
 Real world example:
->todo
+>Suppose you want to create a service with which you can log various information in the application. One of the implementation methods is to create a singleton object that will login.
 
 In plain words:
->todo 
+>Ensure a class has only one instance and provide a global point of access to it 
 
 Wikipedia says:
->todo
+>In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance
 
 When to use:
->todo
+>useful when exactly one object is needed to coordinate actions across the system
 
-[C# Example]()
+[C# Example](tp.Singleton/Program.cs)
 
 ### Structural
 In plain words:
