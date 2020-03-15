@@ -83,7 +83,7 @@ When to use:
 >- a family of related product objects is designed to be used together, and you need to enforce this constraint
 >- you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
 
-[C# Example]()
+[C# Example](tp.AbstractFactory/Program.cs)
 
 #### Factories - using abstract classes or interfaces
 Consider using abstract classes if:
@@ -124,7 +124,7 @@ ICloneable problems:
 >- return object type intead of strong type
 >- description of Array.Clone: "Creates a shallow copy of the System.Array" so if we have shallow copying here, why should we do something more?
 
-[C# Example]()
+[C# Example](tp.Prototype/Program.cs)
 
 #### Singleton
 Real world example:
@@ -248,8 +248,26 @@ When to use:
 
 
 ### Behavioral
+In plain words:
+> Behavioral patterns are concerned with the assignment of responsibilities between objects, or, encapsulating behavior in an object and delegating requests to it.
 
+Wikipedia says:
+> In software engineering, behavioral design patterns are design patterns that identify common communication patterns among objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 
+List of patterns:
+- [Chain of responsibility]()
+- [Command]()
+- [Interpreter]()
+- [Iterator]()
+- [Mediator]()
+- [Memento]()
+- [Null Object]()
+- [Observer]()
+- [State]()
+- [Strategy]()
+- [Template method]()
+- [Visitor]()
+  
 #### Pattern
 Real world example:
 >todo
@@ -264,3 +282,8 @@ When to use:
 >todo
 
 [C# Example]()
+
+
+
+# TODO
+- Object pool (creational)
