@@ -255,7 +255,7 @@ Wikipedia says:
 > In software engineering, behavioral design patterns are design patterns that identify common communication patterns among objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 
 List of patterns:
-- [Chain of responsibility]()
+- [Chain of responsibility](#chain-of-responsibility)
 - [Command]()
 - [Interpreter]()
 - [Iterator]()
@@ -267,7 +267,27 @@ List of patterns:
 - [Strategy]()
 - [Template method]()
 - [Visitor]()
-  
+
+#### Chain of responsibility
+Real world example:
+>Let's assume that you are working in a corporation with a certain process of accepting a holiday form.
+It consists of the fact that first your holiday form must be approved by the person who will replace you at work, then by your manager and finally by the HR department.
+In this way, we have created a chain of responsibility, in which a request is the holiday form and the handler is each subsequent person deciding on your holiday form.  
+
+In plain words:
+>Lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
+
+Wikipedia says:
+>In object-oriented design, the chain-of-responsibility pattern is a design pattern consisting of a source of command objects and a series of processing objects. Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.
+
+When to use:
+>- have more than one handler for a request
+>- you have reasons why a handler should pass a request on to another one in the chain
+>- you have a set of handlers that varies dynamically
+>- you want to retain flexibility in assigning requests to handlers
+
+[C# Example](tp.tp.ChainOfResponsibility/Program.cs)
+
 #### Pattern
 Real world example:
 >todo
