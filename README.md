@@ -286,7 +286,7 @@ When to use:
 >- you have a set of handlers that varies dynamically
 >- you want to retain flexibility in assigning requests to handlers
 
-[C# Example](tp.tp.ChainOfResponsibility/Program.cs)
+[C# Example](tp.ChainOfResponsibility/Program.cs)
 
 #### Pattern
 Real world example:
