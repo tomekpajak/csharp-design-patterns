@@ -288,6 +288,24 @@ When to use:
 
 [C# Example](tp.ChainOfResponsibility/Program.cs)
 
+#### Command
+Real world example:
+>Suppose you want to make a transfer from account X to account Y. You make a withdrawal on account X and you make a payment on account Y. We can treat deposit and withdrawal as Command.
+
+In plain words:
+>Command turns a request into a stand-alone object that contains all information about the request. This transformation lets you parameterize methods with different requests, delay or queue a request’s execution, and support undoable operations. 
+
+Wikipedia says:
+>In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
+
+When to use:
+>- you need to execute tasks, but you want to separate the tasks management from the execution of the task itself
+>- you want to queue tasks, schedule their execution, or execute them remotely
+>- you want to parametrize objects with tasks
+>- you need to support Redo and Undo functionality
+
+[C# Example](tp.Command/Program.cs)
+
 #### Pattern
 Real world example:
 >todo
