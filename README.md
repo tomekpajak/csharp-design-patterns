@@ -256,8 +256,7 @@ Wikipedia says:
 
 List of patterns:
 - [Chain of responsibility](#chain-of-responsibility)
-- [Command]()
-- [Interpreter]()
+- [Command](#command)
 - [Iterator]()
 - [Mediator]()
 - [Memento]()
@@ -306,12 +305,28 @@ When to use:
 
 [C# Example](tp.Command/Program.cs)
 
+#### Iterator
+Real world example:
+>Let's assume that you use the X system to manage your work, in which the tasks to do are presented in a board with columns: ready, in progress, in validation, failed, done. This system provides an API with which you can get subsequent tasks to do, in other words, the system provides an interface to iterate through the subsequent tasks in a specific order.
+
+In plain words:
+>An iterator pattern provides a way of accessing elements of a collection sequentially, without knowing how the collection is structured.
+
+Wikipedia says:
+>In object-oriented programming, the iterator pattern is a design pattern in which an iterator is used to traverse a container and access the container's elements. The iterator pattern decouples algorithms from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
+
+When to use:
+>- you want to access a collection of objects without exposing its internal representation
+>- there are multiple traversals of objects need to be supported in the collection
+
+[C# Example](tp.Iterator/Program.cs)
+
 #### Pattern
 Real world example:
 >todo
 
 In plain words:
->todo 
+>todo
 
 Wikipedia says:
 >todo
@@ -320,8 +335,6 @@ When to use:
 >todo
 
 [C# Example]()
-
-
 
 # TODO
 - Object pool (creational)
