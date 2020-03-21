@@ -257,7 +257,7 @@ Wikipedia says:
 List of patterns:
 - [Chain of responsibility](#chain-of-responsibility)
 - [Command](#command)
-- [Iterator]()
+- [Iterator](#iterator)
 - [Mediator]()
 - [Memento]()
 - [Null Object]()
@@ -307,7 +307,7 @@ When to use:
 
 #### Iterator
 Real world example:
->Let's assume that you use the X system to manage your work, in which the tasks to do are presented in a board with columns: ready, in progress, in validation, failed, done. This system provides an API with which you can get subsequent tasks to do, in other words, the system provides an interface to iterate through the subsequent tasks in a specific order.
+>Let's assume that you have a media player. In media players, we have a list of songs. We can traverse to the desired song by choosing the next button and play the song. It’s also an iterator example.
 
 In plain words:
 >An iterator pattern provides a way of accessing elements of a collection sequentially, without knowing how the collection is structured.
