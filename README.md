@@ -258,7 +258,7 @@ List of patterns:
 - [Chain of responsibility](#chain-of-responsibility)
 - [Command](#command)
 - [Iterator](#iterator)
-- [Mediator]()
+- [Mediator](#mediator)
 - [Memento]()
 - [Null Object]()
 - [Observer]()
@@ -321,6 +321,22 @@ When to use:
 
 [C# Example](tp.Iterator/Program.cs)
 
+#### Mediator
+Real world example:
+>Let's assume you have many friends with whom you want to talk. For this purpose, you do not connect to each of them with a special "cable" but you use, for example, a special application for communication or use the phone network. In this case, the communication application and the phone network act as a mediator.
+
+In plain words:
+>Mediator helps in establishing loosely coupled communication between objects and helps in reducing the direct references to each other.
+
+Wikipedia says:
+>In software engineering, the mediator pattern defines an object that encapsulates how a set of objects interact. This pattern is considered to be a behavioral pattern due to the way it can alter the program's running behavior.
+
+When to use:
+>- you have communication between multiple objects is well defined but complex
+>- you have too many relationships exist and a common point of control or communication is required
+
+[C# Example](tp.Mediator/Program.cs)
+
 #### Pattern
 Real world example:
 >todo
@@ -335,6 +351,3 @@ When to use:
 >todo
 
 [C# Example]()
-
-# TODO
-- Object pool (creational)
