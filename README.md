@@ -259,7 +259,7 @@ List of patterns:
 - [Command](#command)
 - [Iterator](#iterator)
 - [Mediator](#mediator)
-- [Memento]()
+- [Memento](#memento)
 - [Null Object]()
 - [Observer]()
 - [State]()
@@ -336,6 +336,22 @@ When to use:
 >- you have too many relationships exist and a common point of control or communication is required
 
 [C# Example](tp.Mediator/Program.cs)
+
+#### Memento
+Real world example:
+>Suppose you are working on a system to handle surveys. One of the functionalities is to be able to save the current status of the survey by the user so that you can return to it later.
+
+In plain words:
+>The memento allows you to remember, store and restore the state of an object.
+
+Wikipedia says:
+>The memento pattern is a software design pattern that provides the ability to restore an object to its previous state (undo via rollback).
+
+When to use:
+>- when object’s state is continuously changing and the user of the application may decide to rollback or undo the changes changes at any point
+>- when applications which must be restarted from their last known working state or draft. An example of this can be an IDE which restart from changes, user made before closing the IDE.
+
+[C# Example](tp.Memento/Program.cs)
 
 #### Pattern
 Real world example:
