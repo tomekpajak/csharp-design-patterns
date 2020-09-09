@@ -1,14 +1,13 @@
 # Design patterns using c#
-## Types of designe patterns
-- [Creational](#sreational)
+## Types of design patterns
+- [Creational](#creational)
 - [Structural](#structural)
 - [Behavioral](#behavioral)
 
 ### Creational
 In plain words:
 >Creational patterns allow to abstract the process of creating objects in an abstract form. 
-Wzorce te kapsułkują informację z któych konkretnych klas korzystamy do tworzenia obiektu. Dodatkowo ukrywany jest proces tworzenia i składania/budowania tych obiektów.
-Wzorce te dają dużą elastyczność w zakresie tego CO jest tworzone, KTO to robi, JAK jest to robione i KIEDY.
+These patterns encapsulate information from which specific classes we use to create an object. Additionally, the process of creating and assembling / building these objects is hidden. These patterns offer great flexibility in WHAT is created, WHO does it, HOW it's done and WHEN.
 
 Wikipedia says:
 >In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
@@ -24,7 +23,7 @@ List of patterns:
 
 #### Builder
 Real world example:
->Imagine you want to make pizza. Pizza can consist of various ingredients. You can make basic pizza and pizzas with many different ingredients. Each pizza will have its own "builder".
+>Imagine you want to make a pizza. Pizza can consist of various ingredients. You can make basic pizza and pizzas with many different ingredients. Each pizza will have its own "builder".
 
 In plain words:
 >Pattern where the process of creating an object is divided into several smaller stages, and each of them can be implemented in many ways. Thanks to this solution it is possible to create different representations of objects in the same construction process. 
@@ -41,6 +40,7 @@ So what is the problem with that?
 When to use:
 >- solve the telescoping constructor problem
 >- for objects that contain flat data (e.g.: html code, SQL query, X.509 certificate)
+>- helpful during writing automated tests
 
 Builder vs Abstract Factory:
 >The builder pattern describes the creation of complex objects step by step. In the abstract factory pattern, accent is placed on families of object-products
@@ -69,7 +69,7 @@ When to use:
 
 ##### Abstract Factory
 Real world example:
->Imagine you want to buy laptop. You are visiting store where you can order two brande laptop HP and Apple. Each laptop is made by different factory and contains different processor and storage. 
+>Imagine you want to buy laptop. You are visiting store where you can order two brand laptop HP and Apple. Each laptop is made by different factory and contains different processor and storage. 
 
 In plain words:
 >Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
@@ -121,7 +121,7 @@ Shallow cloning vs deep cloning:
 
 ICloneable problems:
 >- does not specify whether cloning should be shallow or deep so we don't know what to expect
->- return object type intead of strong type
+>- return object type instead of strong type
 >- description of Array.Clone: "Creates a shallow copy of the System.Array" so if we have shallow copying here, why should we do something more?
 
 [C# Example](tp.Prototype/Program.cs)
@@ -260,7 +260,6 @@ List of patterns:
 - [Iterator](#iterator)
 - [Mediator](#mediator)
 - [Memento](#memento)
-- [Null Object]()
 - [Observer]()
 - [State]()
 - [Strategy]()
