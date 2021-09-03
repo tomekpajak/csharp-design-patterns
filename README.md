@@ -210,7 +210,7 @@ Example of using:
 > - profiling decorator
 > - decorator of properties and events
 > 
-[C# Example](tp.Decorator/Program.cs)
+[C# Example](tp.decorator/Program.cs)
 
 #### Proxy
 Real world example:
